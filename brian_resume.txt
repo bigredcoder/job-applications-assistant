@@ -1,0 +1,67 @@
+BRIAN ROBISON
+CTO - Chief Technical Officer / AI Consultant
+ 
+San Diego, CA | brian@editorr.com | 619.246.3188
+
+PROFILE
+
+Over 20 years of experience in computer and information sciences, specializing in AI consulting, technology innovation, and automation. Proven expertise in helping businesses implement AI-powered solutions to optimize operations, automate workflows, and drive growth. Currently serving as the CTO of Shop Boss, where I lead technology solutions for auto shop management, and founder of editorr.ai, an AI-driven content generation and consulting platform. Skilled in aligning AI and technology strategies with business objectives to deliver measurable results.
+
+EXPERIENCE
+
+Shop Boss | CTO (2019 - Present)
+▪ Spearhead technology strategy, aligning with the vision to revolutionize auto shop management.
+▪ Lead development of cutting-edge software solutions that enhance service delivery and operational efficiency for auto shops.
+▪ Build and lead a team of engineers and developers, fostering creativity and technical excellence.
+▪ Collaborate with industry leaders to integrate the latest technologies into the product ecosystem.
+▪ Optimize infrastructure for peak performance, reliability, and security.
+
+Editorr | CTO/Founder (2013 - Present)
+▪ Developed the first on-demand copyediting/proofreading service using human editors.
+▪ Launched editorr.ai, an AI-powered content generation platform, reducing content creation time by 70%.
+▪ Transitioned to offering AI consulting services, helping businesses automate workflows and optimize operations.
+▪ Led the development of custom AI algorithms for content generation and process automation, boosting efficiency by 50%.
+▪ Integrated advanced AI models (e.g., ChatGPT, Langchain), increasing consulting revenue by 40%.
+▪ Delivered AI workshops, educating companies on AI's potential and implementation strategies.
+
+Accelerated Digital Media | Director of Technology (2018 - 2019)
+▪ Reduced product time-to-market by 70% through service-oriented architecture.
+▪ Increased page speed by 75% and reduced bounce rate by 65% with a focus on UX/UI.
+▪ Improved landing page efficiency by 80% through centralized repositories and structured workflows.
+▪ Led API integrations, increasing testing capacity by 85%.
+▪ Introduced development alternatives that extended the company's operational lifespan.
+
+Ads, Inc. | Director of Development (2017 - 2018)
+▪ Developed and integrated a custom CRM, increasing revenue by 30% and reducing account closures by 55%.
+▪ Mitigated a DDOS attack, preventing a $65k revenue loss.
+▪ Optimized network architecture, reducing service fees by $10k per month.
+▪ Increased productivity by 20% through strategic workflows and documentation.
+▪ Implemented a KPI tracking dashboard, reducing manual reporting by 90% and saving $5k per month.
+
+Socialtect | CTO (2009 - 2017)
+▪ Led a consulting firm providing web development, marketing strategies, and social media consulting.
+▪ Designed and developed custom websites, improving client engagement by 25%.
+▪ Advised on digital marketing strategies, driving a 35% increase in lead generation for clients.
+▪ Implemented social media marketing strategies, growing online engagement by 40%.
+▪ Provided consulting to over 50 clients, helping them boost revenue by 30%.
+
+EDUCATION
+
+▪ Ferris State University – MS in Computer and Information Sciences
+▪ Argosy University – MBA in Business Administration
+
+SKILLS
+
+Artificial Intelligence & Automation
+▪ AI Tools: ChatGPT, Langchain – Implemented AI solutions for content generation and automation.
+▪ Machine Learning & NLP: Developed predictive analytics and process optimization tools using machine learning.
+▪ Process Automation: Led automation projects, reducing manual labor by 90%.
+▪ Programming & Web Development: PHP, Python, JavaScript, HTML, CSS, Vue.js, Bootstrap.
+▪ Database Management: MySQL expertise for scalable web applications.
+▪ Cloud Architecture: AWS (EC2, S3, RDS, Lambda) for scalable, secure infrastructure.
+▪ API Development & Integration: Experience with RESTful APIs for seamless application data exchange.
+
+Leadership & Strategy
+▪ Team Leadership: Managed cross-functional engineering and AI teams.
+▪ Technology Strategy: Aligned technology initiatives with business growth objectives.
+▪ Project Management: Led AI projects from concept to delivery, ensuring timely execution.

@@ -1,0 +1,59 @@
+# Brian Robison
+San Francisco, CA | brian.robison@example.com | (555) 123-4567 | linkedin.com/in/brianrobison
+
+## Summary
+Experienced software engineer with 8+ years of experience in full-stack development, specializing in Python, JavaScript, and cloud technologies. Proven track record of delivering scalable, high-performance applications and leading engineering teams.
+
+## Skills
+- **Languages**: Python, JavaScript, TypeScript, SQL, HTML/CSS
+- **Frameworks**: React, Django, Flask, Express.js, Next.js
+- **Cloud & DevOps**: AWS (EC2, S3, Lambda), Docker, Kubernetes, CI/CD pipelines
+- **Databases**: PostgreSQL, MongoDB, Redis
+- **Tools**: Git, JIRA, Confluence, Slack, VS Code
+
+## Experience
+
+### Senior Software Engineer | TechCorp Inc. | Jan 2020 - Present
+- Led development of a microservices architecture that improved system reliability by 35%
+- Architected and implemented RESTful APIs serving 1M+ daily requests
+- Mentored junior developers and conducted code reviews to maintain code quality
+- Reduced infrastructure costs by 25% through cloud optimization strategies
+- Implemented automated testing that increased code coverage from 65% to 92%
+
+### Software Engineer | DataSystems LLC | Mar 2017 - Dec 2019
+- Developed full-stack web applications using React, Node.js, and PostgreSQL
+- Created data visualization dashboards that helped clients increase operational efficiency
+- Collaborated with product managers to define and implement new features
+- Optimized database queries resulting in 40% faster application performance
+- Participated in agile development processes including daily standups and sprint planning
+
+### Junior Developer | WebSolutions Co. | Jun 2015 - Feb 2017
+- Built responsive web interfaces using HTML5, CSS3, and JavaScript
+- Assisted in the development of a content management system for small businesses
+- Fixed bugs and implemented minor features in existing applications
+- Participated in code reviews and improved coding skills through mentorship
+
+## Education
+**Bachelor of Science in Computer Science**
+University of California, Berkeley | 2011 - 2015
+- GPA: 3.8/4.0
+- Relevant coursework: Data Structures, Algorithms, Database Systems, Web Development
+
+## Projects
+**Personal Finance Tracker**
+- Built a full-stack application using React, Express, and MongoDB
+- Implemented user authentication, data visualization, and budget forecasting features
+- Deployed on AWS with CI/CD pipeline using GitHub Actions
+
+**Open Source Contributions**
+- Contributed to Django REST Framework by fixing bugs and improving documentation
+- Created and maintained a popular npm package for form validation with 50K+ downloads
+
+## Certifications
+- AWS Certified Solutions Architect – Associate
+- MongoDB Certified Developer
+- Certified Scrum Master
+
+## Languages
+- English (Native)
+- Spanish (Conversational)
