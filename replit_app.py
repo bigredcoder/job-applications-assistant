@@ -259,20 +259,22 @@ def get_download_link(text: str, filename: str, label: str):
     href = f'<a href="data:text/plain;base64,{b64}" download="{filename}" style="display: inline-block; padding: 0.25em 0.75em; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">{label}</a>'
     return href
 
-# Generate PDF download link
-def get_pdf_download_link(markdown_text: str, filename: str):
-    """Generate a styled download link for markdown content as PDF."""
+# Generate styled download links for different purposes
+def get_resume_download_link(markdown_text: str, filename_base: str):
+    """Generate a styled download link for resume markdown content."""
     import base64
     b64 = base64.b64encode(markdown_text.encode()).decode()
-    href = f'<a href="data:text/markdown;base64,{b64}" download="{filename}" style="display: inline-block; padding: 0.25em 0.75em; background-color: #2196F3; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">Download as PDF</a>'
+    filename = f"{filename_base}.md"
+    href = f'<a href="data:text/markdown;base64,{b64}" download="{filename}" style="display: inline-block; padding: 0.25em 0.75em; background-color: #2196F3; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">Download Resume (Markdown)</a>'
     return href
 
-# Generate DOCX download link
-def get_docx_download_link(markdown_text: str, filename: str):
-    """Generate a styled download link for markdown content as DOCX."""
+# Generate cover letter download link
+def get_cover_letter_download_link(markdown_text: str, filename_base: str):
+    """Generate a styled download link for cover letter markdown content."""
     import base64
     b64 = base64.b64encode(markdown_text.encode()).decode()
-    href = f'<a href="data:text/markdown;base64,{b64}" download="{filename}" style="display: inline-block; padding: 0.25em 0.75em; background-color: #673AB7; color: white; text-decoration: none; border-radius: 4px;">Download as Word</a>'
+    filename = f"{filename_base}.md"
+    href = f'<a href="data:text/markdown;base64,{b64}" download="{filename}" style="display: inline-block; padding: 0.25em 0.75em; background-color: #673AB7; color: white; text-decoration: none; border-radius: 4px;">Download Cover Letter (Markdown)</a>'
     return href
 
 # Main Streamlit app
@@ -584,10 +586,8 @@ def main():
             st.markdown("### Download Options")
             download_container = st.container()
             with download_container:
-                md_link = get_download_link(resume_md, f'robison_resume-{clean_company_name(company_name)}.md', 'Download as Markdown')
-                pdf_link = get_pdf_download_link(resume_md, f'robison_resume-{clean_company_name(company_name)}.pdf')
-                docx_link = get_docx_download_link(resume_md, f'robison_resume-{clean_company_name(company_name)}.docx')
-                st.markdown(f"{md_link} {pdf_link} {docx_link}", unsafe_allow_html=True)
+                resume_link = get_resume_download_link(resume_md, f'robison_resume-{clean_company_name(company_name)}')
+                st.markdown(resume_link, unsafe_allow_html=True)
 
         with doc_tab2:
             st.markdown("### Cover Letter")
@@ -597,10 +597,8 @@ def main():
             st.markdown("### Download Options")
             download_container = st.container()
             with download_container:
-                md_link = get_download_link(cover_letter_md, f'robison_coverletter-{clean_company_name(company_name)}.md', 'Download as Markdown')
-                pdf_link = get_pdf_download_link(cover_letter_md, f'robison_coverletter-{clean_company_name(company_name)}.pdf')
-                docx_link = get_docx_download_link(cover_letter_md, f'robison_coverletter-{clean_company_name(company_name)}.docx')
-                st.markdown(f"{md_link} {pdf_link} {docx_link}", unsafe_allow_html=True)
+                cover_letter_link = get_cover_letter_download_link(cover_letter_md, f'robison_coverletter-{clean_company_name(company_name)}')
+                st.markdown(cover_letter_link, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
