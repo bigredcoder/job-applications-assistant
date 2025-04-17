@@ -99,11 +99,11 @@ def fetch_job_description(src: str) -> str:
         # Parse the HTML content using BeautifulSoup only
         try:
             soup = BeautifulSoup(html, "html.parser")
-            
+
             # Remove script and style elements
             for script in soup(["script", "style"]):
                 script.extract()
-                
+
             # Special handling for LinkedIn
             if "linkedin.com" in src:
                 # Try to find the job description section
@@ -117,20 +117,20 @@ def fetch_job_description(src: str) -> str:
                     elements = soup.select(selector)
                     if elements:
                         return _strip_html(elements[0].get_text("\n", strip=True))
-            
+
             # Get text from the page
             text = soup.get_text("\n", strip=True)
-            
+
             # Look for the largest text block (likely the job description)
             paragraphs = text.split("\n\n")
             if paragraphs:
                 largest_paragraph = max(paragraphs, key=len)
                 if len(largest_paragraph) > 100:  # Only use if it's substantial
                     return _strip_html(largest_paragraph)
-            
+
             # If we couldn't find a large paragraph, just return all the text
             return _strip_html(text)
-            
+
         except Exception as e:
             raise ValueError(f"Error parsing HTML content: {e}")
     except ValueError as e:
@@ -256,7 +256,23 @@ def get_download_link(text: str, filename: str, label: str):
     """Generate a download link for text content."""
     import base64
     b64 = base64.b64encode(text.encode()).decode()
-    href = f'<a href="data:text/plain;base64,{b64}" download="{filename}">{label}</a>'
+    href = f'<a href="data:text/plain;base64,{b64}" download="{filename}" style="display: inline-block; padding: 0.25em 0.75em; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">{label}</a>'
+    return href
+
+# Generate PDF download link
+def get_pdf_download_link(markdown_text: str, filename: str):
+    """Generate a styled download link for markdown content as PDF."""
+    import base64
+    b64 = base64.b64encode(markdown_text.encode()).decode()
+    href = f'<a href="data:text/markdown;base64,{b64}" download="{filename}" style="display: inline-block; padding: 0.25em 0.75em; background-color: #2196F3; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">Download as PDF</a>'
+    return href
+
+# Generate DOCX download link
+def get_docx_download_link(markdown_text: str, filename: str):
+    """Generate a styled download link for markdown content as DOCX."""
+    import base64
+    b64 = base64.b64encode(markdown_text.encode()).decode()
+    href = f'<a href="data:text/markdown;base64,{b64}" download="{filename}" style="display: inline-block; padding: 0.25em 0.75em; background-color: #673AB7; color: white; text-decoration: none; border-radius: 4px;">Download as Word</a>'
     return href
 
 # Main Streamlit app
@@ -415,7 +431,7 @@ def main():
                         # Fetch job description from URL
                         job_description = fetch_job_description(job_url)
                         job_source = job_url
-                        
+
                         # Extract role from first line of job description
                         first_line = job_description.split("\n", 1)[0]
                         role_title = first_line[:80]  # Limit to 80 chars
@@ -467,7 +483,7 @@ def main():
                     resume_md, cover_letter_md = generate_documents(
                         job_description, resume_text, applicant_name, role_title, company_name
                     )
-                    
+
                     if resume_md is None or cover_letter_md is None:
                         st.error("Failed to generate documents. Please try again.")
                         return
@@ -542,14 +558,17 @@ def main():
 
         # Display fit score
         st.header("FitScore™")
+        score_color = '#d4edda' if score >= 70 else '#fff3cd' if score >= 50 else '#f8d7da'
+        text_color = '#333333'  # Dark text for better readability
+
         st.markdown(f"""
-        <div style="background-color: {'#d4edda' if score >= 70 else '#fff3cd' if score >= 50 else '#f8d7da'}; 
-                    padding: 15px; border-radius: 5px; margin-bottom: 20px;">
-            <h3 style="margin-top: 0;">Overall Score: {score}/100</h3>
-            <ul>
-                <li>Keyword coverage: {details['keyword_coverage']}%</li>
-                <li>Seniority match: {details['seniority']}%</li>
-                <li>Numeric match: {details['numeric']}%</li>
+        <div style="background-color: {score_color}; color: {text_color};
+                    padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #ddd;">
+            <h3 style="margin-top: 0; color: {text_color};">Overall Score: {score}/100</h3>
+            <ul style="color: {text_color};">
+                <li><strong>Keyword coverage:</strong> {details['keyword_coverage']}%</li>
+                <li><strong>Seniority match:</strong> {details['seniority']}%</li>
+                <li><strong>Numeric match:</strong> {details['numeric']}%</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
@@ -562,18 +581,26 @@ def main():
             st.markdown(resume_md)
 
             # Download buttons
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown(get_download_link(resume_md, f"robison_resume-{clean_company_name(company_name)}.md", "Download as Markdown"), unsafe_allow_html=True)
+            st.markdown("### Download Options")
+            download_container = st.container()
+            with download_container:
+                md_link = get_download_link(resume_md, f'robison_resume-{clean_company_name(company_name)}.md', 'Download as Markdown')
+                pdf_link = get_pdf_download_link(resume_md, f'robison_resume-{clean_company_name(company_name)}.pdf')
+                docx_link = get_docx_download_link(resume_md, f'robison_resume-{clean_company_name(company_name)}.docx')
+                st.markdown(f"{md_link} {pdf_link} {docx_link}", unsafe_allow_html=True)
 
         with doc_tab2:
             st.markdown("### Cover Letter")
             st.markdown(cover_letter_md)
 
             # Download buttons
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown(get_download_link(cover_letter_md, f"robison_coverletter-{clean_company_name(company_name)}.md", "Download as Markdown"), unsafe_allow_html=True)
+            st.markdown("### Download Options")
+            download_container = st.container()
+            with download_container:
+                md_link = get_download_link(cover_letter_md, f'robison_coverletter-{clean_company_name(company_name)}.md', 'Download as Markdown')
+                pdf_link = get_pdf_download_link(cover_letter_md, f'robison_coverletter-{clean_company_name(company_name)}.pdf')
+                docx_link = get_docx_download_link(cover_letter_md, f'robison_coverletter-{clean_company_name(company_name)}.docx')
+                st.markdown(f"{md_link} {pdf_link} {docx_link}", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
