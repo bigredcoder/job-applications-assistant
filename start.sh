@@ -20,8 +20,15 @@ if [ -d "/home/runner/workspace" ]; then
 
     # Create symlink for brian_resume.txt
     ln -sf "$(pwd)/brian_resume.txt" "/home/runner/workspace/brian_resume.txt"
-fi
 
-# Run the application
-echo "Starting Streamlit application..."
-streamlit run job_apply_gui.py
+    # Create generated directory if it doesn't exist
+    mkdir -p "/home/runner/workspace/generated"
+
+    # Run the Replit-specific version
+    echo "Starting Streamlit application (Replit version)..."
+    streamlit run replit_app.py
+else
+    # Run the regular version
+    echo "Starting Streamlit application..."
+    streamlit run job_apply_gui.py
+fi

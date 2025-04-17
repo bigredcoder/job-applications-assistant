@@ -2,7 +2,6 @@ streamlit
 openai
 requests
 beautifulsoup4
-readability-lxml
 markdown
 python-docx
 reportlab
