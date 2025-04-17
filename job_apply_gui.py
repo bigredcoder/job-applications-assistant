@@ -16,12 +16,22 @@ import re
 import tempfile
 import streamlit as st
 from pathlib import Path
-from job_apply_assistant import (
-    fetch_job_description,
-    generate_documents,
-    compute_fit_score,
-    _md_to_pdf
-)
+try:
+    # Try importing from the wrapper first (for Replit compatibility)
+    from job_apply_assistant_wrapper import (
+        fetch_job_description,
+        generate_documents,
+        compute_fit_score,
+        _md_to_pdf
+    )
+except ImportError:
+    # Fall back to direct import for local development
+    from job_apply_assistant import (
+        fetch_job_description,
+        generate_documents,
+        compute_fit_score,
+        _md_to_pdf
+    )
 from file_utils import extract_text_from_file
 from pdf_utils import get_pdf_download_link, get_docx_download_link
 
