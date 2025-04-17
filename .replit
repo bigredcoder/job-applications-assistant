@@ -1,1 +1,1 @@
-run = "streamlit run job_apply_gui.py"
+run = "bash start.sh"

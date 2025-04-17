@@ -5,5 +5,4 @@ beautifulsoup4
 readability-lxml
 markdown
 python-docx
-textract
-weasyprint
+reportlab
